@@ -4,6 +4,7 @@ ody, ul, h2, p {
     padding: 0;
 }
 
+
 li {
     list-style-type: none;
 }
@@ -21,6 +22,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+/* 스크롤바 */
+html { overflow-y:scroll; }
+/* 스크롤바 */
+
 /* 메뉴바-start */
 .menu {
     display: block;
@@ -98,44 +104,43 @@ body {
 }
 /* 메뉴바-end */
 
-
-
-
-/* 박스1-end */
-
 /* 검색창-start */
 .search {
-    position: relative;
-    width: 100px;
+    position: absolute;
+    width: 80%;
+    right: 5px;
+    left: 250px;
+    top: 40px;
   }
   
   input {
-    width: 1550px;
+    width: 100%;
     border: 1px solid #bbb;
     border-radius: 8px;
     padding: 10px 12px;
     font-size: 14px;
-    position: relative;
-    left: 250px;
-    bottom: 270px;
   }
   
   img {
-    position : relative;
+    position : absolute;
     width: 17px;
-    bottom: 295px;
-    left: 1790px;
+    top: 10px;
+    right: 12px;
     margin: 0;
   }
 /* 검색창-end */
 
-/* 박스1-start */
-.box1{
-    margin: 100px;
-    border: 5px solid #dddddd;
+/* 배경-gif-start */
+.gif-box{
+    background-image: url(./images/gif2.gif);
+    color: green;
+    width: 70%;
+    height: 50%;
+    right: 5px;
+    left: 250px;
+    top: 45px;
     padding: 50px;
-    height: 100px;
-    width: 150px;
-    position: relative;
+    margin: 40px;
+    position : absolute;
 }
-/* 박스1-end */
+/* 배경-gif-end */
