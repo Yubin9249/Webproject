@@ -36,13 +36,21 @@
         function test() {
           var p1 = document.getElementById('pass1').value;
           var p2 = document.getElementById('pass2').value;
+          var p3 = document.getElementById('email').value;
+          var p4 = document.getElementById('name').value;
           if( p1 != p2 ) {
             alert("비밀번호가 일치 하지 않습니다");
             return false;
-          } else if (p1 == ""){ 
+          } else if (p1 == "" ){ 
+            return false;
+          }
+          else if (p3 == "" ){ 
+            return false;
+          }
+          else if (p4 == "" ){ 
             return false;
           }else{
-            alert("가입 완료");
+              alert("가입 완료")
             return true;
           }
         }
