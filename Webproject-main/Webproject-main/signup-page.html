@@ -32,29 +32,6 @@
         box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
     }
     </style>
-    <script type="text/javascript">
-        function test() {
-          var p1 = document.getElementById('pass1').value;
-          var p2 = document.getElementById('pass2').value;
-          var p3 = document.getElementById('email').value;
-          var p4 = document.getElementById('name').value;
-          if( p1 != p2 ) {
-            alert("비밀번호가 일치 하지 않습니다");
-            return false;
-          } else if (p1 == "" ){ 
-            return false;
-          }
-          else if (p3 == "" ){ 
-            return false;
-          }
-          else if (p4 == "" ){ 
-            return false;
-          }else{
-              alert("가입 완료")
-            return true;
-          }
-        }
-      </script>
 </head>
 
 <body>
@@ -62,7 +39,7 @@
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
                 <h4 class="mb-3">회원가입</h4>
-                <form class="validation-form" novalidate>
+                <form action="login-page.html"class="validation-form" novalidate>
                     <div class="mb-3"> <label for="email">이메일</label> <input type="email" class="form-control"
                             id="email" placeholder="gildong@example.com" required>
                         <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
@@ -85,7 +62,7 @@
                     <div class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input"
                             id="aggrement" required> <label class="custom-control-label" for="aggrement">개인정보 수집 및
                             이용에 동의합니다.</label> </div>
-                    <div class="mb-4"></div> <button class="btn btn-primary btn-lg btn-block"onclick="test();" type="submit">가입
+                    <div class="mb-4"></div> <button class="btn btn-primary btn-lg btn-block" type="submit">가입
                         완료</button>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2 "><a href="login-page.html">로그인 페이지 이동</a></div>
                 </form>
