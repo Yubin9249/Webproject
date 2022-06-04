@@ -1,0 +1,380 @@
+@charset "utf-8";
+body, ul, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+body {
+    background-color: #212121;
+    color: #fff;
+    margin: 0;
+    height: 1000px;
+    background-image: url(images/banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment:scroll;
+}
+.wrapper {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 스크롤바 */
+html { overflow-y:scroll; }
+/* 스크롤바 */
+
+/* 메뉴바-start */
+.menu {
+    display: block;
+    overflow: hidden;
+    width: 200px;
+    background-color: #1f1f1f;
+    color: #fff;
+    transition: all 0.5s ease;
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu a, .menu > label {
+    display: block;
+    height: 25px;
+    padding: 8px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: #000;
+}
+.menu ul li:hover, .menu > label:hover {
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+}
+.menu div {
+    position: absolute;
+    left: 50px;
+    line-height: 1.5;
+    font-size: 1em;
+    font-family: 'Noto Sans KR';
+    padding: 0 0 0 20px;
+}
+
+#expand-menu {
+    display: none;
+}
+#expand-menu:checked ~ ul {
+    display: block;
+    height: auto;
+}
+
+.menu ::before {
+    font-family: 'Material Icons';
+    font-size: 1.5em;
+    float: left;
+    clear: left;
+}
+.menu label::before{ content: '\e5d2'; }
+.menu li:nth-child(1) a::before{ content: '\e8cc'; }
+.menu li:nth-child(2) a::before{ content: '\e8d6'; }
+.menu li:nth-child(3) a::before{ content: '\e87d'; }
+.menu li:nth-child(4) a::before{ content: '\e88a'; }
+.menu li:nth-child(5) a::before{ content: '\f02e'; }
+.menu li:nth-child(6) a::before{ content: '\e8b8'; }
+
+@media screen and (max-width:1023px) {
+    .menu {
+        width: 60px;
+    }
+}
+@media screen and (max-width:560px) {
+    .menu #expand-menu:not(:checked) ~ ul {
+        display: none;
+    }
+}
+/* 메뉴바-end */
+
+/* 검색창-start */
+.search {
+    position: absolute;
+    width: 75%;
+    top: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+  
+  input {
+    width: 100%;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+.search img {
+    position : absolute;
+    width: 17px;
+    top: 10px;
+    right: 12px;
+    margin: 0;
+  }
+/* 검색창-end */
+
+/* gif박스-start */
+.gif-box{
+  width: 40%;
+  height: 60%;
+  position: relative;
+  margin-left: 20%;
+  bottom:10%;
+}
+/* gif박스-end */
+
+/* 박스-start */
+.box-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    background: #111;
+    display: inline-block;
+    height: 35%;
+    width: 20%;
+    margin: 1rem;
+    position: relative;
+    top: 10%;
+    left: 10%;
+  }
+
+  .box-1:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  
+  .main1-img{
+      object-fit: cover;
+      width:100%;
+  }
+
+  .user1-img{
+    width: 30%;
+    height: 30%;
+    object-fit: cover;
+    border-radius: 30%;
+    margin:1% 1% 1% 1%;  
+  }
+
+  .heart-img{
+    width: 30%;
+    height: 30%;
+    border-radius: 30%;
+    align-items: center;
+    margin:1% 1% 1% 1%;  
+    background-image: url("images/heart.png");
+    background-size: 100%;
+    position: absolute;
+    left: 34%;
+    bottom: 5%;
+  }
+
+
+  .heart-img:hover{  
+    background-image: url("images/heart2.png");
+  }
+  
+  .share-img{
+    width: 30%;
+    height: 30%;
+    border-radius: 30%;
+    align-items: center;
+    margin:1% 1% 1% 1%;
+    background-image: url("images/share.png");
+    background-size: 100%;
+    position: absolute;
+    left: 68%;
+    bottom: 5%;
+  }
+
+  .share-img:hover{
+    background-image: url("images/share2.png");
+  }
+
+  
+/* 박스-end */
+
+/* 이동버튼-start */
+
+.box-button1 {
+  background-clip: padding-box;
+  background-color: initial;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Eina01,sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  position: relative;
+  text-align: center;
+  width: auto;
+  left: 72%;
+  bottom: 5%;
+}
+
+@media (min-width: 768px) {
+  .box-button1 {
+    padding: 19px 32px;
+  }
+}
+
+.box-button1:before,
+.box-button1:after {
+  border-radius: 80px;
+}
+
+.box-button1:before {
+  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.box-button1:after {
+  background-color: initial;
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.box-button1:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, rgb(255, 116, 38) 0%, rgb(249, 58, 19) 100%);
+}
+
+.box-button1:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+
+.box-button1:active:not(:disabled):before {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+}
+
+.box-button1:active:not(:disabled):after {
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.box-button2 {
+  background-clip: padding-box;
+  background-color: initial;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Eina01,sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  position: relative;
+  text-align: center;
+  width: auto;
+  right: 25%;
+  bottom: 5%;
+}
+
+@media (min-width: 768px) {
+  .box-button2 {
+    padding: 19px 32px;
+  }
+}
+
+.box-button2:before,
+.box-button2:after {
+  border-radius: 80px;
+}
+
+.box-button2:before {
+  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.box-button2:after {
+  background-color: initial;
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.box-button2:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, rgb(255, 116, 38) 0%, rgb(249, 58, 19) 100%);
+}
+
+.box-button2:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+
+.box-button2:active:not(:disabled):before {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+}
+
+.box-button2:active:not(:disabled):after {
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+/* 이동버튼-end */
