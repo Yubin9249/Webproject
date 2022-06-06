@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+  <head>
+      <title>java-code-page2</title>
+      <link rel="stylesheet" href="java-code-page2-style.css">
+  </head>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  <script>
+          $(document).ready(function(){ 
+   
+      $(".btn-box").on('click', function(){
+      $(".comment").addClass("afterText");
+    });
+    $("textarea").on('keyup.enter', function(){
+      $(".comment").addClass("afterText");
+    });
+    });
+   
+  new Vue({
+      el: "#wrapper",
+      data:{
+        newItem: '',
+        item: [],
+      },
+      methods:{
+        addItem  (){
+        this.item.push(this.newItem);
+          this.newItem = "";
+        }
+    }
+    });
+  </script>
+
+    <body>
+      <div ng-app="MyApp" ng-controller="AppCtrl">
+          <!-- code Box-start -->
+          <div class="codeheader" id="codeheader_java">Java</div>
+            <div id="codebox">
+              <pre><code data-language="java">
+                package 오목;
+
+                public class Word {
+                  private int y;
+                  private int x;
+                  private int color;
+                  
+                  public Word(int y,int x,int color) {
+                    this.y=y;
+                    this.x=x;
+                    this.color=color;
+                  }
+                  public int getY() {
+                    return y;
+                  }
+                  public void setY(int y) {
+                    this.y = y;
+                  }
+                  public int getColor() {
+                    return color;
+                  }
+                  public void setColor(int color) {
+                    this.color = color;
+                  }
+                  public int getX() {
+                    return x;
+                  }
+                  public void setX(int x) {
+                    this.x = x;
+                  }
+                }
+                
+                package 오목;
+                
+                import java.util.Scanner;
+                
+                public class GameMethod {
+                  private int MaxSize = 20;
+                  private int Map[][] = new int[MaxSize][MaxSize];
+                  private int GamePlay_cnt = 2; // 게임플레이어 숫자
+                  private int cun_GamePlayer = 1; // 게임플레이어 현재 순서
+                
+                  public void init() {
+                    for (int i = 0; i < MaxSize; i++) {
+                      for (int j = 0; j < MaxSize; j++) {
+                        Map[i][j] = 0;
+                      }
+                    }
+                  }
+                
+                  public void nextPlayer(int cun_p) {
+                    cun_p++;
+                    if (GamePlay_cnt < cun_p) {
+                      cun_GamePlayer = 1;
+                    } else {
+                      cun_GamePlayer = cun_p;
+                    }
+                  }
+                  public boolean endGame(Word w) {
+                    int nowColor = w.getColor();
+                    int dir[][] = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 }, { -1, 1 }, { 1, -1 }, { -1, -1 }, { 1, 1 } };
+                
+                    for (int i = 0; i < 8; i = i + 2) {
+                      int same_cnt = 1;
+                      int cunY = w.getY();
+                      int cunX = w.getX();
+                
+                      for (int j = 0; j < 5; j++) {
+                        cunY = cunY + dir[i][0];
+                        cunX = cunX + dir[i][1];
+                        if (cunY < 0 || cunY >= MaxSize || cunX < 0 || cunX >= MaxSize)
+                          break;
+                        if (nowColor != Map[cunY][cunX])
+                          break;
+                
+                        same_cnt++;
+                      }
+                      cunY = w.getY();
+                      cunX = w.getX();
+                
+                      for (int j = 0; j < 5; j++) {
+                        cunY = cunY + dir[i + 1][0];
+                        cunX = cunX + dir[i + 1][1];
+                        if (cunY < 0 || cunY >= MaxSize || cunX < 0 || cunX >= MaxSize)
+                          break;
+                        if (nowColor != Map[cunY][cunX])
+                          break;
+                        same_cnt++;
+                      }
+                
+                      if (same_cnt >= 5) {
+                        return true;
+                      }
+                    }
+                    return false;
+                  }
+                
+                  public void inputWord(Word w) {
+                    Map[w.getY()][w.getX()] = w.getColor();
+                  }
+                
+                  public boolean checkInput(int y, int x) {
+                    if (Map[y][x] != 0 || y < 0 || y >= MaxSize || x < 0 || x >= MaxSize) {
+                      return false;
+                    }
+                    return true;
+                  }
+                  public void setGameMode(int max) {
+                    this.GamePlay_cnt = max;
+                  }
+                  public int[][] getMap() {
+                    return Map;
+                  }
+                  public int getCun_GamePlayer() {
+                    return cun_GamePlayer;
+                  }
+                }
+                
+                package 오목;
+                
+                import java.awt.Container;
+                import java.awt.event.ActionEvent;
+                import java.awt.event.ActionListener;
+                
+                import javax.swing.*;
+                
+                public class RunGame extends JFrame {
+                  private Container c;
+                  MapSize size = new MapSize();
+                  GameMethod gm = new GameMethod();
+                
+                  public RunGame(String title) {
+                    setTitle(title);
+                    createMenu();
+                    setBounds(200, 20, 650, 750);
+                    c = getContentPane();
+                    c.setLayout(null);
+                    ShowMap m = new ShowMap(size, gm);
+                    setContentPane(m);
+                    MouseAction Mc = new MouseAction(gm, size, m, this);
+                    addMouseListener(Mc);
+                    setVisible(true);
+                    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                  }
+                
+                  class MenuActionListener implements ActionListener {
+                    public void actionPerformed(ActionEvent e) {
+                      String cmd = e.getActionCommand();
+                      switch (cmd) { // 메뉴 아이템의 종류 구분
+                      case "2인":
+                        gm.setGameMode(2);
+                        gm.init();
+                        break;
+                      case "3인":
+                        gm.setGameMode(3);
+                        gm.init();
+                        break;
+                      }
+                    }
+                  }
+                
+                  public void createMenu() {
+                    JMenuBar mb = new JMenuBar(); // 메뉴바 생성
+                    JMenuItem[] menuItem = new JMenuItem[2];
+                    String[] itemTitle = { "2인", "3인" };
+                    JMenu screenMenu = new JMenu("게임모드선택");
+                    MenuActionListener listener = new MenuActionListener();
+                    for (int i = 0; i < menuItem.length; i++) {
+                      menuItem[i] = new JMenuItem(itemTitle[i]);
+                      menuItem[i].addActionListener(listener);
+                      screenMenu.add(menuItem[i]);
+                    }
+                    mb.add(screenMenu);
+                    setJMenuBar(mb);
+                  }
+                
+                }
+                
+                package 오목;
+                import java.awt.event.MouseAdapter;
+                import java.awt.event.MouseEvent;
+                
+                import javax.swing.JOptionPane;
+                public class MouseAction extends MouseAdapter{
+                  private GameMethod gm; 
+                  private MapSize m; 
+                  private ShowMap sm;
+                  private RunGame g;
+                  
+                  public MouseAction(GameMethod gm,MapSize m, ShowMap mm,RunGame g) {
+                    this.gm=gm;
+                    this.m=m;
+                    this.sm=mm;
+                    this.g=g;
+                  }
+                  @Override
+                  public void mousePressed(MouseEvent me) {
+                    int x = (int)Math.round(me.getX()/(double) m.getCell())-1;
+                    int y = (int)Math.round(me.getY()/(double) m.getCell())-2;
+                    
+                    if(gm.checkInput(y, x) == false) {
+                      return;
+                    }
+                    
+                    Word w = new Word(y,x,gm.getCun_GamePlayer());
+                    gm.inputWord(w);
+                    gm.nextPlayer(gm.getCun_GamePlayer());
+                    sm.repaint();
+                    if(gm.endGame(w)==true) {
+                      String ms;
+                      if(w.getColor()==1) {
+                        ms="검돌승리!";
+                      }
+                      else if(w.getColor()==2) {
+                        ms="백돌승리!";
+                      }
+                      else {
+                        ms="적돌승리!";
+                      }
+                      showWin(ms);
+                      gm.init();
+                    }
+                  }
+                  public void showWin(String msg) {
+                    JOptionPane.showMessageDialog(g, msg, "",JOptionPane.INFORMATION_MESSAGE);
+                    
+                  }
+                }
+                
+                package 오목;
+                
+                import java.awt.Color;
+                import java.awt.Graphics;
+                import javax.swing.JPanel;
+                public class ShowMap extends JPanel{
+                  private MapSize size;
+                  private GameMethod gm;
+                  private final int STONE_SIZE=28; //돌 사이즈
+                
+                  public ShowMap(MapSize m,GameMethod gm) {
+                    setBackground(new Color(206,167,61)); 
+                    size=m;
+                    setLayout(null);
+                    this.gm =gm;
+                  }
+                
+                  @Override
+                  public void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.setColor(Color.BLACK); 
+                    board(g);
+                    drawStone(g); 
+                  }
+                  
+                  public void board(Graphics g) {
+                    for(int i=1;i<=size.getSize();i++){
+                      g.drawLine(size.getCell(), i*size.getCell(), size.getCell()*size.getSize(), i*size.getCell()); 
+                      g.drawLine(i*size.getCell(), size.getCell(), i*size.getCell() , size.getCell()*size.getSize()); 
+                    }
+                  }
+                  public void drawStone(Graphics g) {
+                      for(int y=0;y<size.getSize();y++){
+                        for(int x=0;x<size.getSize();x++){
+                          if(gm.getMap()[y][x]==1)
+                            drawBlack(g,x,y);
+                          else if(gm.getMap()[y][x]==2)
+                            drawWhite(g, x, y);
+                          else if(gm.getMap()[y][x]==3)
+                            drawRed(g, x, y);
+                        }
+                      }
+                  }
+                  public void drawRed(Graphics g,int x,int y){
+                    g.setColor(Color.RED);
+                    g.fillOval(x*size.getCell()+15, y*size.getCell()-15, STONE_SIZE, STONE_SIZE);
+                  }
+                  public void drawBlack(Graphics g,int x,int y){
+                    g.setColor(Color.BLACK);
+                    g.fillOval(x*size.getCell()+15, y*size.getCell()-15, STONE_SIZE, STONE_SIZE);
+                  }
+                  public void drawWhite(Graphics g,int x,int y){
+                    g.setColor(Color.WHITE);
+                    g.fillOval(x*size.getCell()+15, y*size.getCell()-15, STONE_SIZE, STONE_SIZE);
+                  }
+                  
+                }
+
+package 오목;
+
+public class Run {
+	public static void main(String[] args) {
+		new RunGame("헤헿 뭐하누 핳하");
+	}
+}
+
+package 오목;
+
+public class MapSize {
+	private final int CELL =30;
+	private final int SIZE =20;
+	public int getCell() {
+		return CELL;
+	}
+	public int getSize() {
+		return SIZE;
+	}
+}
+</pre></div>
+            <!-- code Box-end -->
+          <!-- 결과box-start  -->
+          <div class = "result-box">
+            <img class = "result1-img" src = "images/result5.jpg">
+          </div>
+
+          <!-- 결과box-end -->
+
+          <!-- 댓글-start -->
+          <section id="wrapper">
+            <div class="box">
+              <div class="row">
+                <div class="col-6">
+                  <div class="comment">
+                <p v-for="items in item" v-text="items"></p>
+                  </div>
+                  </div>
+                  </div>
+              <div class="row">
+                <div class="col-6">
+              <textarea type="text" class="input" placeholder="Your Comment Here" v-model="newItem" @keyup.enter="addItem()"></textarea>
+                  <button v-on:click="addItem()" class='btn-box' type="submit">Your Comment</button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- 댓글-start -->
+    </body>
+</html>
