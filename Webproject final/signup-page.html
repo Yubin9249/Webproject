@@ -35,17 +35,24 @@
             -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
             box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
         }
-
-        a {
-            color: #333;
+        a{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-bottom: -50px;
+        }
+        a > img{
+            width: 150px;
+            height: 90px;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="input-form-backgroud row">
-            <div class="input-form col-md-12 mx-auto">
+   
+    <div class="container"> <a href="first-page.html"><img src="images/logo.png"></a>
+        <div class="input-form-backgroud row mt">
+            <div class="input-form col-md-12 mx-auto"> 
                 <h4 class="mb-3">회원가입</h4>
                 <form action="login-page.html" class="validation-form" novalidate>
                     <div class="row">
@@ -79,15 +86,11 @@
                             이용에 동의합니다.</label> </div>
                     <div class="mb-4"></div> <button class="btn btn-primary btn-lg btn-block" type="submit">가입
                         완료</button>
-                    <div class=" d-md-flex justify-content-md-end mt-2"><a href="login-page.html"
-                            style="text-decoration: none;">로그인 페이지
-                            이동</a></div>
+                   
                 </form>
             </div>
         </div>
-        <footer class="my-3 text-center text-small">
-            <p class="mb-1">&copy; scnu</p>
-        </footer>
+       
     </div>
     <script> window.addEventListener('load', () => {
             const forms = document.getElementsByClassName('validation-form');
@@ -102,7 +105,7 @@
         }, false);
 
     </script>
-
+    
 </body>
 
 </html>
