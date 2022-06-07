@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  <head>
+      <title>java-code-page1</title>
+      <link rel="stylesheet" href="java-code-page-style.css">
+  </head>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  <script>
+          $(document).ready(function(){ 
+   
+      $(".btn-box").on('click', function(){
+      $(".comment").addClass("afterText");
+    });
+    $("textarea").on('keyup.enter', function(){
+      $(".comment").addClass("afterText");
+    });
+    });
+   
+  new Vue({
+      el: "#wrapper",
+      data:{
+        newItem: '',
+        item: [],
+      },
+      methods:{
+        addItem  (){
+        this.item.push(this.newItem);
+          this.newItem = "";
+        }
+    }
+    });
+  </script>
+
+    <body>
+      <div ng-app="MyApp" ng-controller="AppCtrl">
+          <!-- code Box-start -->
+          <div class="codeheader" id="codeheader_java">Java</div>
+            <div class="codebox">
+              <pre>
+class Accounting{
+    public double valueOfSupply;
+    public double vatRate;
+    public double expenseRate;
+    public void print() {
+        System.out.println("Value of supply : " + valueOfSupply);
+        System.out.println("VAT : " + getVAT());
+        System.out.println("Total : " + getTotal());
+        System.out.println("Expense : " + getExpense());
+        System.out.println("Income : " + getIncome());
+        System.out.println("Dividend 1 : " + getDiviend1());
+        System.out.println("Dividend 2 : " + getDiviend2());
+        System.out.println("Dividend 3 : " + getDiviend3());
+    }
+ 
+    public double getDiviend1() {
+        return getIncome() * 0.5;
+    }
+    public double getDiviend2() {
+        return getIncome() * 0.3;
+    }
+    public double getDiviend3() {
+        return getIncome() * 0.2;
+    }
+ 
+    public double getIncome() {
+        return valueOfSupply - getExpense();
+    }
+ 
+    public double getExpense() {
+        return valueOfSupply * expenseRate;
+    }
+ 
+    public double getTotal() {
+        return valueOfSupply + getVAT();
+    } 
+ 
+    public double getVAT() {
+        return valueOfSupply * vatRate;
+    }
+}
+public class AccountingClassApp {
+     
+    public static void main(String[] args) {
+        // instance 
+        Accounting a1 = new Accounting();
+        a1.valueOfSupply = 10000.0;
+        a1.vatRate = 0.1;
+        a1.expenseRate = 0.3;
+        a1.print();
+         
+        Accounting a2 = new Accounting();
+        a2.valueOfSupply = 20000.0;
+        a2.vatRate = 0.05;
+        a2.expenseRate = 0.2;
+        a2.print();
+         
+        a1.print();
+    }
+}
+</pre>
+            </div>
+            <!-- code Box-end -->
+          <!-- 결과box-start  -->
+          <div class = "result-box">
+            <img class = "result1-img" src = "images/result4.jpg">
+          </div>
+        
+
+          <!-- 결과box-end -->
+
+          <!-- 댓글-start -->
+          <section id="wrapper">
+            <div class="box">
+              <div class="row">
+                <div class="col-6">
+                  <div class="comment">
+                <p v-for="items in item" v-text="items"></p>
+                  </div>
+                  </div>
+                  </div>
+              <div class="row">
+                <div class="col-6">
+              <textarea type="text" class="input" placeholder="Your Comment Here" v-model="newItem" @keyup.enter="addItem()"></textarea>
+                  <button v-on:click="addItem()" class='btn-box' type="submit">Your Comment</button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- 댓글-start -->
+
+          <!-- 버튼-start -->
+          <button class='downlod-box' type="button">다운로드</button>
+          <!-- 버튼-start -->
+    </body>
+</html>

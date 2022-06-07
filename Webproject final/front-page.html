@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>front-page</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./front-page-style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-sidebar">
+            <a href="./first-page.html" class="logobtn"><img src="./images/logo.png"></a>
+            <div class="menu">
+                <label for="expand-menu">
+                    <div>메뉴</div>
+                </label>
+                <!-- <input type="checkbox" id="expand-menu" name="expand-menu"> -->
+                <ul>
+                    <li><a href="#">
+                            <div>즐겨찾기</div>
+                        </a></li>
+                    <li><a href="#">
+                            <div>마이페이지</div>
+                        </a></li>
+                    <li><a href="#">
+                            <div>설정</div>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 스크롤 -->
+    <div overflow: scroll></div>
+    <!-- 스크롤 -->
+
+    <!-- 헤더 박스 -->
+    <div class="headerBar">
+        <div class="form-control">
+            <form action="#"><label class="search-input">
+                    <h1 id="search-title" class="screen-reader-text">Search</h1>
+                    <input autocomplete="off" class="search-input" placeholder="Search..." type="search" value="">
+                </label></form>
+        </div>
+        <div class="container">
+
+            <button class="logBtn log" onclick="location.href = 'login-page.html'">Login</button>
+            <a href="https://www.naver.com/"></a>
+
+            <button class="logBtn reg" onclick="location.href = 'signup-page.html' ">Sign up</button>
+            <a href="https://www.naver.com/"></a>
+
+        </div>
+    </div>
+    <!-- 헤더박스-end -->
+    <!-- 코드 목록 박스 -->
+    <main>
+        <section id="item-box">
+            <h1>코드 목록</h1>
+            <ul class="item-list">
+                <li class="item-box"> <a href="front-code-page1.html">
+                        <img src="./images/main1.png">
+                    </a>
+                    <div class="codeTitle">
+                        <h3>Animated Tab </h3>
+                    </div>
+                </li>
+                <li class="item-box"> <a href="front-code-page2.html">
+                        <img src="./images/main2.jpg">
+                    </a>
+                    <div class="codeTitle">
+                        <h3>Scroll Animation </h3>
+                    </div>
+                </li>
+                <li class="item-box"> <a href="front-code-page3.html">
+                        <img src="./images/main3.jpg">
+                    </a>
+                    <div class="codeTitle">
+                        <h3>Login Form </h3>
+                    </div>
+                </li>
+                <li class="item-box"> <a href="empty-code-page.html">
+                        <img src="./images/plus.jpg">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <!-- 코드 목록 박스-end -->
+    <footer>
+        <div>
+            <h1>Code</h1>
+            <p>Coding is easy and fun.</p>
+            <p>Everyone will help you.</p>
+            <p>Search, share, and evolve.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
