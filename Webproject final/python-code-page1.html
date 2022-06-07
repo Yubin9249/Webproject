@@ -36,8 +36,8 @@
       <div ng-app="MyApp" ng-controller="AppCtrl">
           <!-- code Box-start -->
           <div class="codeheader" id="codeheader_python">Python</div>
-            <div id="codebox">
-              <pre><code data-language="Python">
+            <div class="codebox">
+              <pre>
 import cv2, dlib, sys
 import numpy as np
 
@@ -148,6 +148,7 @@ while True:
   cv2.imshow('result', result)
   if cv2.waitKey(1) == ord('q'):
     sys.exit(1)
+    </pre>
             </div>
             <!-- code Box-end -->
           <!-- 결과box-start  -->
@@ -176,6 +177,10 @@ while True:
               </div>
             </div>
           </section>
-          <!-- 댓글-start -->
+          <!-- 댓글-end -->
+
+          <!-- 버튼-start -->
+          <button class='downlod-box' type="button">다운로드</button>
+          <!-- 버튼-start -->
     </body>
 </html>

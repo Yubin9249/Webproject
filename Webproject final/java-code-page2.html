@@ -36,66 +36,87 @@
       <div ng-app="MyApp" ng-controller="AppCtrl">
           <!-- code Box-start -->
           <div class="codeheader" id="codeheader_java">Java</div>
-            <div id="codebox">
-              <pre><code data-language="java">
-                package 오목;
+            <div class="codebox">
+              <pre>
+package 오목;
 
-                public class Word {
-                  private int y;
-                  private int x;
-                  private int color;
+public class Word {
+  private int y;
+  private int x;
+  private int color;
                   
-                  public Word(int y,int x,int color) {
-                    this.y=y;
-                    this.x=x;
-                    this.color=color;
-                  }
-                  public int getY() {
-                    return y;
-                  }
-                  public void setY(int y) {
-                    this.y = y;
-                  }
-                  public int getColor() {
-                    return color;
-                  }
-                  public void setColor(int color) {
-                    this.color = color;
-                  }
-                  public int getX() {
-                    return x;
-                  }
-                  public void setX(int x) {
-                    this.x = x;
-                  }
-                }
+public Word(int y,int x,int color) {
+  this.y=y;
+  this.x=x;
+  this.color=color;
+}
+
+public int getY() {
+  return y;
+}
+
+public void setY(int y) {
+  this.y = y;
+}
                 
-                package 오목;
+public int getColor() {
+                    
+  return color;
+                  
+}
+                 
+public void setColor(int color) {
+ 
+  this.color = color;
+ 
+}
+
+public int getX() {
+
+  return x;
+
+}
+
+public void setX(int x) {
+
+  this.x = x;
+
+}
+
+}
+
+
+
+package 오목;
+
+
+
+import java.util.Scanner;
+
+
+
+public class GameMethod {
+  private int MaxSize = 20;
+  private int Map[][] = new int[MaxSize][MaxSize];
+  private int GamePlay_cnt = 2; // 게임플레이어 숫자
+  private int cun_GamePlayer = 1; // 게임플레이어 현재 순서
                 
-                import java.util.Scanner;
+public void init() {
+  for (int i = 0; i < MaxSize; i++) {
+    for (int j = 0; j < MaxSize; j++) {
+          Map[i][j] = 0;
+      }
+    }
+  }
                 
-                public class GameMethod {
-                  private int MaxSize = 20;
-                  private int Map[][] = new int[MaxSize][MaxSize];
-                  private int GamePlay_cnt = 2; // 게임플레이어 숫자
-                  private int cun_GamePlayer = 1; // 게임플레이어 현재 순서
-                
-                  public void init() {
-                    for (int i = 0; i < MaxSize; i++) {
-                      for (int j = 0; j < MaxSize; j++) {
-                        Map[i][j] = 0;
-                      }
-                    }
-                  }
-                
-                  public void nextPlayer(int cun_p) {
-                    cun_p++;
-                    if (GamePlay_cnt < cun_p) {
-                      cun_GamePlayer = 1;
-                    } else {
-                      cun_GamePlayer = cun_p;
-                    }
-                  }
+public void nextPlayer(int cun_p) {
+  cun_p++;
+  if (GamePlay_cnt < cun_p) {
+      cun_GamePlayer = 1;
+} else {
+  cun_GamePlayer = cun_p;
+    }
+  }
                   public boolean endGame(Word w) {
                     int nowColor = w.getColor();
                     int dir[][] = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 }, { -1, 1 }, { 1, -1 }, { -1, -1 }, { 1, 1 } };
@@ -298,54 +319,8 @@
                       g.drawLine(i*size.getCell(), size.getCell(), i*size.getCell() , size.getCell()*size.getSize()); 
                     }
                   }
-                  public void drawStone(Graphics g) {
-                      for(int y=0;y<size.getSize();y++){
-                        for(int x=0;x<size.getSize();x++){
-                          if(gm.getMap()[y][x]==1)
-                            drawBlack(g,x,y);
-                          else if(gm.getMap()[y][x]==2)
-                            drawWhite(g, x, y);
-                          else if(gm.getMap()[y][x]==3)
-                            drawRed(g, x, y);
-                        }
-                      }
-                  }
-                  public void drawRed(Graphics g,int x,int y){
-                    g.setColor(Color.RED);
-                    g.fillOval(x*size.getCell()+15, y*size.getCell()-15, STONE_SIZE, STONE_SIZE);
-                  }
-                  public void drawBlack(Graphics g,int x,int y){
-                    g.setColor(Color.BLACK);
-                    g.fillOval(x*size.getCell()+15, y*size.getCell()-15, STONE_SIZE, STONE_SIZE);
-                  }
-                  public void drawWhite(Graphics g,int x,int y){
-                    g.setColor(Color.WHITE);
-                    g.fillOval(x*size.getCell()+15, y*size.getCell()-15, STONE_SIZE, STONE_SIZE);
-                  }
-                  
-                }
-
-package 오목;
-
-public class Run {
-	public static void main(String[] args) {
-		new RunGame("헤헿 뭐하누 핳하");
-	}
-}
-
-package 오목;
-
-public class MapSize {
-	private final int CELL =30;
-	private final int SIZE =20;
-	public int getCell() {
-		return CELL;
-	}
-	public int getSize() {
-		return SIZE;
-	}
-}
-</pre></div>
+</pre>
+</div>
             <!-- code Box-end -->
           <!-- 결과box-start  -->
           <div class = "result-box">
