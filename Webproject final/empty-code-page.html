@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>empty-code-page</title>
+  <link rel="stylesheet" href="empty-code-page-style.css">
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  <script>
+    $(document).ready(function () {
+
+      $(".btn-box").on('click', function () {
+        $(".comment").addClass("afterText");
+      });
+      $("textarea").on('keyup.enter', function () {
+        $(".comment").addClass("afterText");
+      });
+    });
+
+    new Vue({
+      el: "#wrapper",
+      data: {
+        newItem: '',
+        item: [],
+      },
+      methods: {
+        addItem() {
+          this.item.push(this.newItem);
+          this.newItem = "";
+        }
+      }
+
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- HTML Box -->
+
+
+  <div class="codeheader col " id="codeheader_html">HTML</div>
+  <div class="codebox">
+
+  </div>
+
+  <!-- CSS Box -->
+  <div class="codeheader col-6" id="codeheader_css">CSS</div>
+  <div class="codebox">
+  </div>
+
+  <!-- JS Box -->
+
+  <div class="codeheader col-6" id="codeheader_js">JS</div>
+  <div class="codebox">
+
+
+  </div>
+  <!-- 결과box-start  -->
+ <div class="result-box">
+    <label for="file-input">
+      <img src="images/addimage.jpg", id="preview-image">
+    </label>
+    <input id="file-input" type="file" style="display:none;">
+  </div>
+  <!-- 결과box-end -->
+
+ 
+  <!-- addfile 이미지 변경-start -->
+  <script>
+    function readImage(input) {
+    if(input.files && input.files[0]) {
+
+        const reader = new FileReader()
+        reader.onload = e => {
+            const previewImage = document.getElementById("preview-image")
+            previewImage.src = e.target.result
+        }
+        reader.readAsDataURL(input.files[0])
+    }
+}
+const inputImage = document.getElementById("file-input")
+inputImage.addEventListener("change", e => {
+    readImage(e.target)
+})
+  </script>
+<!-- addfile 이미지 변경-end -->
+ <!-- title-start -->
+ <section id="wrapper">
+  <div class="box">
+    <div class="row">
+      <div class="col-6">
+        <div class="comment">
+      <p v-for="items in item" v-text="items"></p>
+        </div>
+        </div>
+        </div>
+    <div class="row">
+    <textarea type="text" class="input" placeholder="title / comment"></textarea>
+    </div>
+  </div> 
+  <button class='btn-box' type="button" onclick="location.href='front-page.html'">코드 등록</button>
+</section>
+<!-- title-end -->
+</body>
+
+</html>
