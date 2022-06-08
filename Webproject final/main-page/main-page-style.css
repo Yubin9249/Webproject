@@ -1,0 +1,301 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Roboto&display=swap');
+@font-face {
+  font-family: "CookieRun Bold";font-family: "CookieRun Regular";
+  src: url("./font/CookieRun Bold.ttf");src: url("./font/CookieRun Regular.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+
+body {
+  background-color: rgb(191,196,164);
+  color: #fff;
+  margin: 0;
+  height: 150vh;
+  background-size: 100% auto;
+  background-image: url(../images/banner.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+  background-position: 40% 35%; 
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 스크롤바 */
+html {
+  overflow-y: scroll;
+}
+
+/* 스크롤바-end */
+
+/* 로고 이미지 */
+a {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+a>img {
+  width: 150px;
+  height: 90px;
+}
+h1{
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 로고이미지-end*/
+
+
+/* 헤더 사이드 바 */
+.header-sidebar {
+  box-sizing: border-box;
+  background-color: #151515;
+  color: #fff;
+  width: 200px;
+  padding-top: 30px;
+  padding-left: 30px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transition: 1s ease;
+  position: fixed;
+}
+/* 헤더 사이드바-end */
+
+/* 헤더바 */
+.headerBar {
+  box-sizing: border-box;
+  background-color: rgb(65,80,63);
+  color: #fff;
+  height: 120px;
+  position: absolute;
+  left: 200px;
+  right: 0;
+  transition: 1s ease;
+  padding-top: 30px;
+}
+
+/* 헤더바-end */
+
+/* 코드 목록 바 */
+section{
+  
+  background-color: rgb(32, 49, 37);
+  color: #fff;
+  width: 300px;
+  padding-top: 30px;
+  padding-left: 30px;
+  position: fixed;
+  top:120px;
+  right:  -300px;
+  bottom: 0;
+  transition: 1s ease;
+  border-radius: 15px 0 0 15px;
+}
+section:hover{
+  right: 0;
+}
+/* 코드 목록 바-end */
+
+/* 메뉴-start */
+.menu {
+  margin-top: 25px;
+  padding-right: 45px;
+}
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu > label{
+  margin-bottom: 20px;
+  font-size: 1.6em;
+}
+.menu a,
+.menu>label {
+  display: block;
+  height: 25px;
+  padding: 8px;
+  
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: #000;
+}
+.menu ul li:hover{
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  
+}
+
+.menu ::before {
+  font-family: 'Material Icons';
+  font-size: 1.5em;
+  float: left;
+  clear: left;
+}
+
+.menu label::before {
+  content: '\e5d2';
+}
+
+.menu li:nth-child(1) a::before{
+  content: '\e87d';
+}
+
+.menu li:nth-child(2) a::before {
+  content: '\e88a';
+}
+
+.menu li:nth-child(3) a::before {
+  content: '\e8b8';
+}
+
+/* 메뉴-end */
+
+/* 검색창-start */
+.search-title {
+  position: relative;
+}
+
+.screen-reader-text {
+  display: none;
+}
+
+.search-input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+  left: 0;
+  margin-left: 50px;
+  border: none;
+}
+
+.form-control {
+  float: left;
+  width:70%;
+}
+
+.search-input::-webkit-input-placeholder {
+  background-image: url(https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png);
+  background-size: contain;
+  background-position: 1px center;
+  background-repeat: no-repeat;
+  text-align: left;
+  text-indent: 2em;
+}
+
+/* 검색창-end */
+
+/* 로그인 버튼 start */
+
+.container {
+  justify-content: center;
+  display: flex;
+  float: right;
+  width: 30%;
+}
+
+.logBtn {
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 0 10px;
+  width: 100px;
+  padding: 10px 0;
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+  transition: 0.4s;
+}
+
+.reg {
+  color: white;
+  background-color: rgb(137, 172, 56);
+}
+
+.log {
+  margin-left: 200px;
+  color: rgb(104, 85, 224);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(104, 85, 224, 1);
+}
+
+.logBtn:hover {
+  color: white;
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+  background-color: rgba(104, 85, 224, 1);
+}
+
+/* 로그인 버튼 and */
+
+/* 즐겨찾기 박스 */
+.item-list{
+  padding-left: 45px;
+  
+}
+.item-box{
+  border: 2px solid;
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  background: #111;
+  display: inline-block;
+  height: 140px;
+  width: 200px;
+  margin: 1rem 0 1rem 0;
+}
+.item-box > a > img{
+  width: 100%;
+  height: 100%;
+}
+.item-box:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+/* 즐겨찾기 박스-end */
+
+/* 코드 제목 */
+.codeTitle {
+  position: relative;
+  height: 35px;
+  width: 220px;
+  border-radius: 5px;
+  background-color: rgb(121, 88, 88);
+  top: -30px;
+  right: 40px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 10px ;
+}
+/* 코드제목-end */
+footer{
+  box-sizing: border-box;
+  background-color: rgb(191,196,164);
+  color: #fff;
+    position: absolute;
+  right: 10%;
+  top:100%;
+  transition: 1s ease;
+  z-index: -1;
+  font-size: 50px;
+}
+footer > div >p{
+  text-indent: 60px;
+  font-family: "CookieRun Regular";
+  color: rgb(65,80,63);
+}
+footer > div >h1{
+  font-family: "CookieRun Bold";
+  text-shadow: 5px 5px 1px #151515;
+}
