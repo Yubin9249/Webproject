@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+	
+	body {
+    margin: 0;
+      padding-top: 200px;
+      padding-bottom: 40px;
+      font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+      background-image: url('../images/star.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+	}
+	
+    .card {
+        margin: 0 auto; 
+        float: none; 
+        margin-bottom: 10px; 
+	}
+
+	.form-signin .form-control {
+  		position: relative;
+  		height: auto;
+  		-webkit-box-sizing: border-box;
+     	-moz-box-sizing: border-box;
+        	 box-sizing: border-box;
+  		padding: 10px;
+  		font-size: 16px;
+	}
+   
+	 .links{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    a{
+      color: #333;
+    }
+    .links > a{
+      text-decoration: none;
+    }
+    </style>
+  </head>
+  <body>
+	<div class="card align-middle" style="width:25rem;">
+        <div class="card-body">
+      <form id="GID" class="form-signin" method="POST">
+        <h4 class="mb-3">아이디 찾기</h4>
+        <input type="text" name="name" id="name" class="form-control" placeholder="이름" required ><BR>
+        <input type="email" name="email" id="email" class="form-control" placeholder="이메일" required><br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">아 이 디 찾 기</button>
+      
+      </form>
+     
+		</div>
+        <div class="links">
+            <a href="findPW-page.html">비밀번호 찾기</a> | <a href="login-page.html">로그인</a> | <a href="signup-page.html">회원가입</a>
+
+        </div>
+	</div> 
+    <footer class="my-3 text-center text-small">
+        <p class="mb-1">&copy; scnu</p>
+    </footer>
+    <script>
+
+        document.getElementById("GID").addEventListener("submit",getID );
+        
+        
+        
+        function getID() {
+        
+          alert("아이디가 존재하지 않습니다.");
+        
+        }
+        
+        </script>
+  </body>
+</html>

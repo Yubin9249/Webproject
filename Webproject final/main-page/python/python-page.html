@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>front-page</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../main-page-style.css">
+    <style>
+        body{
+            background-image: url(../../images/python-banner.png);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-sidebar">
+            <a href="../../first-page.html" class="logobtn"><img src="../../images/logo.png"></a>
+            <div class="menu">
+                <label for="expand-menu">
+                    <div>메뉴</div>
+                </label>
+                <!-- <input type="checkbox" id="expand-menu" name="expand-menu"> -->
+                <ul>
+                    <li><a href="#">
+                            <div>즐겨찾기</div>
+                        </a></li>
+                    <li><a href="#">
+                            <div>마이페이지</div>
+                        </a></li>
+                    <li><a href="#">
+                            <div>설정</div>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- 스크롤 -->
+    <div overflow: scroll></div>
+    <!-- 스크롤 -->
+
+    <!-- 헤더 박스 -->
+    <div class="headerBar">
+        <div class="form-control">
+            <form action="#"><label class="search-input">
+                    <h1 id="search-title" class="screen-reader-text">Search</h1>
+                    <input autocomplete="off" class="search-input" placeholder="Search..." type="search" value="">
+                </label></form>
+        </div>
+        <div class="container">
+
+            <button class="logBtn log" onclick="location.href = '../../login-form/login-page.html'">Login</button>
+
+            <button class="logBtn reg" onclick="location.href = '../../login-form/signup-page.html' ">Sign up</button>
+
+        </div>
+    </div>
+    <!-- 헤더박스-end -->
+    <!-- 코드 목록 박스 -->
+    <main>
+        <section id="item-box">
+            <h1>코드 목록</h1>
+            <ul class="item-list">
+                <li class="item-box"> <a href="python-code-page1.html">
+                        <img src="../../images/main7.jpg">
+                    </a>
+                    <div class="codeTitle">
+                        <h3>Face Recognition Camera </h3>
+                    </div>
+                </li>
+                <li class="item-box"> <a href="python-code-page2.html">
+                        <img src="../../images/main8.jpg">
+                    </a>
+                    <div class="codeTitle">
+                        <h3>Raising The Sword</h3>
+                    </div>
+                </li>
+                <li class="item-box"> <a href="python-code-page3.html">
+                        <img src="../../images/main9.jpg">
+                    </a>
+                    <div class="codeTitle">
+                        <h3>AI 2048 play </h3>
+                    </div>
+                </li>
+                <li class="item-box"> <a href="../empty/empty-code-page python.html">
+                        <img src="../../images/plus.jpg">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <!-- 코드 목록 박스-end -->
+    <footer>
+        <div>
+            <h1>Code</h1>
+            <p>Coding is easy and fun.</p>
+            <p>Everyone will help you.</p>
+            <p>Search, share, and evolve.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
