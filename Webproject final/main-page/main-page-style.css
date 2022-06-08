@@ -24,13 +24,6 @@ body {
   background-position: 40% 35%; 
 }
 
-.wrapper {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-}
-
 /* 스크롤바 */
 html {
   overflow-y: scroll;
