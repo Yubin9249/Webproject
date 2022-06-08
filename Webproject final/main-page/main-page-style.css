@@ -235,7 +235,7 @@ section:hover{
 
 /* 로그인 버튼 and */
 
-/* 즐겨찾기 박스 */
+/* 코드 목록 박스 */
 .item-list{
   padding-left: 45px;
   
@@ -256,7 +256,7 @@ section:hover{
 .item-box:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-/* 즐겨찾기 박스-end */
+/* 코드 목록 박스-end */
 
 /* 코드 제목 */
 .codeTitle {
