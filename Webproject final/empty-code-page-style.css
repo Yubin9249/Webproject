@@ -73,7 +73,7 @@ code {
   background-color: #111;
   position: absolute;
   left: 34%;
-  top:10%;
+  top:5%;
   overflow:hidden;
   display: flex;
   justify-content: center;
@@ -92,8 +92,8 @@ code {
   border-radius: 8px;
   padding: 20px;
   position: absolute;
-  right:6%;
-  bottom: 17%;
+  right:2.5%;
+  bottom: 20%;
 }
 .comment {
   display: block;
@@ -126,7 +126,7 @@ button.regist-box {
   border-radius: 5px;
   margin-top: 30px;
   position: absolute;
-  right:30%;
+  right:26.5%;
   bottom: 7%;
 }
 
@@ -146,7 +146,7 @@ button.correction-box {
   border-radius: 5px;
   margin-top: 30px;
   position: absolute;
-  right:18%;
+  right:14.5%;
   bottom: 7%;
 }
 
@@ -166,7 +166,7 @@ button.delete-box {
   border-radius: 5px;
   margin-top: 30px;
   position: absolute;
-  right:6%;
+  right:2.5%;
   bottom: 7%;
 }
 
